@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>9h DOM</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Type something" class="js-input" oninput="printInputText() "  >
+    <p class="js-text"></p>
+    <script>
+      function printInputText(){
+        const innerTextElement = document.querySelector('.js-input');
+        let text = innerTextElement.value;
+        document.querySelector('.js-text').innerHTML = text
+      }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions</title>
+  </head>
+  <body>
+
+
+    <script>
+      /*
+      function function1(){
+        console.log('Hello');
+        console.log(2+2);
+      }
+
+      function1(); 
+      function1();
+      */
+
+      function calculateTax(cost , taxPercent = 0.1){
+        console.log(Math.ceil(cost * taxPercent));
+      }
+
+      calculateTax(8984, 0.3);
+      calculateTax(200);
+    </script>
+
+  </body>
+</html>
+

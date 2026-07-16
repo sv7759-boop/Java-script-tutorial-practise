@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      .calculator{
+        display: grid;
+        grid-template-columns: repeat(4,30px);
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+    <button onclick="console.log(updateCalcultion('1'));">1</button>
+    <button onclick="console.log(updateCalcultion('2'));">2</button>
+    <button onclick="console.log(updateCalcultion('3'));">3</button>
+    <button onclick="console.log(updateCalcultion(' + '));">+</button>
+    
+    </div>
+
+    <div class="calculator">
+    <button onclick="console.log(updateCalcultion('4'));">4</button>
+    <button onclick="console.log(updateCalcultion('5'));">5</button>
+    <button onclick="console.log(updateCalcultion('6'));">6</button>
+    <button onclick="console.log(updateCalcultion(' - '));">-</button>
+    </div>
+
+    <div class="calculator">
+    <button onclick="console.log(updateCalcultion('7'));">7</button>
+    <button onclick="console.log(updateCalcultion('8'));">8</button>
+    <button onclick="console.log(updateCalcultion('9'));">9</button>
+    <button onclick="console.log(updateCalcultion(' * '));">*</button>
+    </div>
+
+    <div class="calculator">
+    <button onclick="console.log(updateCalcultion('0'));">0</button>
+    <button onclick="console.log(updateCalcultion('.'));">.</button>
+    <button onclick="console.log(updateCalcultion('='));">=</button>
+    <button onclick="console.log(updateCalcultion(' / '));">/</button>
+    </div>
+
+    <button onclick="calculation ='';
+      localStorage.removeItem('previousCalculation');
+      console.log(calculation);
+    ">Clear</button>
+  </body>
+    <script>
+      let calculation = localStorage.getItem('previousCalculation') || '';
+
+      
+
+      function updateCalcultion(value){
+        
+        if (value === '='){
+          calculation = eval(calculation);
+        } else if( value === ''){
+          calculation = '';
+        } else {
+          calculation += value;
+        }
+
+        localStorage.setItem('previousCalculation' , calculation);
+        return calculation;
+      }
+
+      
+
+    </script>
+</html>

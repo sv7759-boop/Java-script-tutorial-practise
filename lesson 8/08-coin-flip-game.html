@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>08-coin-flip-game</title>
+  </head>
+  <body>
+    <button onclick="playGame('heads')">Heads</button>
+    <button onclick="playGame('tails')">Tails</button>
+    <button onclick="localStorage.removeItem('score');
+                     score = {wins: 0 , losses: 0};
+                     console.log(score);">clear</button>
+  <script>
+    let score = JSON.parse(localStorage.getItem('score')) || {wins: 0 , losses: 0};
+    
+    function playGame(guess){
+    const randomNumber = Math.random();
+    let result ='';
+    (randomNumber < 0.5) ? result = 'heads' : result = 'tails';
+    (result === guess) ? console.log('You WIN!') : console.log('You LOSE!');
+    (result === guess) ? score.wins += 1 : score.losses += 1;
+    console.log(score);
+    localStorage.setItem('score' , JSON.stringify(score))
+    }
+  
+  </script>
+  </body>
+</html>

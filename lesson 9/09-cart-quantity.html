@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <button onclick="updateCartQuantity('showQuantity');">
+      Show Quantity 
+    </button>
+    <button onclick="updateCartQuantity(1)">
+      Add to Cart
+    </button>
+    <button onclick="updateCartQuantity(2)">
+      +2
+    </button>
+    <button onclick="updateCartQuantity(3)">
+      +3
+    </button>
+    <button onclick="updateCartQuantity('resetCart');">
+      Reset Cart
+    </button>
+    <button onclick="updateCartQuantity(4)">
+      +4
+    </button>
+    <button onclick="updateCartQuantity(5)">
+      +5
+    </button>
+    <button onclick="updateCartQuantity(-1)">
+      Remove from Cart
+    </button>
+    <button onclick="updateCartQuantity(-2)">
+      -2
+    </button>
+    <button onclick="updateCartQuantity(-3)">
+      -3
+    </button>
+    <p class="js-cartQuantity">
+
+    </p>
+
+
+    <script>
+      let quantity = Number(localStorage.getItem('cartQuantity')) || 0;
+
+      document.querySelector('.js-cartQuantity').innerHTML =`Cart Quantity: ${quantity}`;
+
+      function updateCartQuantity(value){
+
+        if(value === 'showQuantity'){
+          document.querySelector('.js-cartQuantity').innerHTML = `Cart Quantity: ${quantity}`;
+          return;
+        } else if (value === 'resetCart'){
+          localStorage.removeItem('cartQuantity');
+          document.querySelector('.js-cartQuantity').innerHTML = `Cart was reset. \nCart Quantity: ${quantity=0} `
+          return;
+        }
+
+        quantity += value;
+
+        if(quantity > 10){
+          document.querySelector('.js-cartQuantity').innerHTML = `The cart is full. Cart Quantity: ${quantity = 10}`;
+          return;
+        } else if (quantity < 0){
+          document.querySelector('.js-cartQuantity').innerHTML = `Not enough items in the cart. Cart Quantity: ${quantity = 0}`;
+          return;
+        }
+        
+        document.querySelector('.js-cartQuantity').innerHTML = `Cart Quantity: ${quantity}`;
+
+        localStorage.setItem('cartQuantity',quantity)
+      }
+      
+    </script>
+
+  </body>
+</html>
+

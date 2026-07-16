@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 9 Exercise</title>
+  </head>
+  <body>
+    <button>9a</button>
+    <button class="js-button">9b</button>
+    <p></p>
+
+    <button onclick="displayHeadTails('heads')">heads</button>
+    <button onclick="displayHeadTails('tails')">tails</button>
+    <p class="js-result"></p>
+
+    <input type="text" placeholder="Name" class="js-input-name" onkeydown="displayNamekeydown(event)">
+    <button onclick="displayYourName()">Submit</button>
+    <p class="js-name"></p>
+
+
+    <script>
+      console.log(document.querySelector('button'));
+      document.querySelector('.js-button').innerHTML = '9b done!';
+      
+
+      function displayHeadTails(value){
+        if (value === 'heads'){
+          document.querySelector('.js-result').innerHTML = `You chose ${value}`; 
+        } else {
+          document.querySelector('.js-result').innerHTML = `You chose ${value}`;
+        }
+      }
+
+      function displayYourName(){
+        const innerName = document.querySelector('.js-input-name').value
+        document.querySelector('.js-name').innerHTML = `Your name is: ${innerName}`;
+      }
+
+      function displayNamekeydown(event){
+      if(event.key === 'Enter'){
+        displayYourName();
+      }
+    }
+      
+    </script>
+
+  </body>
+</html>
+
